@@ -1,0 +1,62 @@
+# Optional Docker deployment (local machine only).
+#   Database only:   docker compose up -d postgres      (host port 55432 to avoid clashing with a local PostgreSQL)
+#   Full stack:      docker compose --profile app up -d --build
+# All ports are published on 127.0.0.1 only. Credentials below are for a LOCAL
+# development database; override POSTGRES_PASSWORD via a .env file for anything else.
+name: solana-paper-bot
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: paperbot
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-paperbot}
+      POSTGRES_DB: paperbot
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-55432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts/postgres-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U paperbot -d paperbot"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    profiles: ["app"]
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      # Inside the container the API must listen on all interfaces; the port is
+      # only published on the host's loopback, and a token is required.
+      HOST: 0.0.0.0
+      PORT: 4000
+      # Required (>= 24 chars): the API refuses to bind 0.0.0.0 without it.
+      API_AUTH_TOKEN: ${API_AUTH_TOKEN:-}
+      CORS_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+      DATABASE_URL: postgres://paperbot:${POSTGRES_PASSWORD:-paperbot}@postgres:5432/paperbot
+      MARKET_PROVIDER: ${MARKET_PROVIDER:-mock}
+    ports:
+      - "127.0.0.1:4000:4000"
+
+  web:
+    profiles: ["app"]
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://127.0.0.1:4000
+        NEXT_PUBLIC_API_TOKEN: ${API_AUTH_TOKEN:-}
+    depends_on:
+      - api
+    ports:
+      - "127.0.0.1:3000:3000"
+
+volumes:
+  pgdata:

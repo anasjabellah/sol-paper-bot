@@ -1,0 +1,40 @@
+{
+  "name": "@spb/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/server.ts",
+    "build": "tsup",
+    "start": "node --enable-source-maps dist/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:pg": "vitest run test/postgres.test.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "backtest": "tsx src/backtest/cli.ts",
+    "record": "tsx src/recorder/cli.ts",
+    "record:report": "tsx src/recorder/cli.ts report",
+    "onchain": "tsx src/onchain/cli.ts",
+    "onchain:report": "tsx src/onchain/cli.ts report"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@spb/shared": "*",
+    "better-sqlite3": "^12.4.1",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.6.1",
+    "pg": "^8.16.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.18.0",
+    "@types/pg": "^8.15.5",
+    "pino": "^10.4.0",
+    "pino-pretty": "^13.1.1",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "vitest": "^3.2.4"
+  }
+}

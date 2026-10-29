@@ -1,0 +1,165 @@
+[
+  {
+    "chainId": "solana",
+    "dexId": "pumpfun",
+    "url": "https://dexscreener.com/solana/dnrzr3qaikhkeyljmysb5dyp4fanw7m3kclysc8nntfe",
+    "pairAddress": "DNRzR3qAiKhKEyLjMySB5Dyp4Fanw7m3kCLySC8nnTfe",
+    "baseToken": {
+      "address": "FjQYCiHM7VHFw4Syai5YCKZmy4vSPcDWmzNBuC8fpump",
+      "name": "Microeledone galapagensis",
+      "symbol": "Gala"
+    },
+    "quoteToken": {
+      "address": "So11111111111111111111111111111111111111112",
+      "name": "Wrapped SOL",
+      "symbol": "SOL"
+    },
+    "priceNative": "0.0000001837",
+    "priceUsd": "0.00001863",
+    "txns": {
+      "m5": {
+        "buys": 221,
+        "sells": 140
+      },
+      "h1": {
+        "buys": 407,
+        "sells": 251
+      },
+      "h6": {
+        "buys": 407,
+        "sells": 251
+      },
+      "h24": {
+        "buys": 407,
+        "sells": 251
+      }
+    },
+    "volume": {
+      "h24": 30894.34,
+      "h6": 30894.34,
+      "h1": 30894.34,
+      "m5": 16215.68
+    },
+    "priceChange": {
+      "m5": 54.36,
+      "h1": 476,
+      "h6": 476,
+      "h24": 476
+    },
+    "fdv": 18635.11,
+    "marketCap": 18635.11,
+    "pairCreatedAt": 1793190629000
+  },
+  {
+    "chainId": "solana",
+    "dexId": "pumpswap",
+    "url": "https://dexscreener.com/solana/ewjia2nk268howctfitp8chqskec8z6azahcimkppxfi",
+    "pairAddress": "EWjia2Nk268HowctfiTp8cHQSkeC8Z6aZAhciMkPpXfi",
+    "baseToken": {
+      "address": "9uGqEsc5Sh9GBjvLr7jUf7PyY9tDZhiV7kCdyM7Wpump",
+      "name": "gently used joystick",
+      "symbol": "N64"
+    },
+    "quoteToken": {
+      "address": "So11111111111111111111111111111111111111112",
+      "name": "Wrapped SOL",
+      "symbol": "SOL"
+    },
+    "priceNative": "0.0000008659",
+    "priceUsd": "0.00008809",
+    "txns": {
+      "m5": {
+        "buys": 11,
+        "sells": 8
+      },
+      "h1": {
+        "buys": 182,
+        "sells": 140
+      },
+      "h6": {
+        "buys": 3692,
+        "sells": 660
+      },
+      "h24": {
+        "buys": 10386,
+        "sells": 2875
+      }
+    },
+    "volume": {
+      "h24": 357520.61,
+      "h6": 86950.88,
+      "h1": 14113.53,
+      "m5": 647.08
+    },
+    "priceChange": {
+      "m5": 1.13,
+      "h1": 2.19,
+      "h6": -8.25,
+      "h24": -5.1
+    },
+    "liquidity": {
+      "usd": 24772.34,
+      "base": 150275998,
+      "quote": 113.361
+    },
+    "fdv": 85411,
+    "marketCap": 85411,
+    "pairCreatedAt": 1793056090000
+  },
+  {
+    "chainId": "solana",
+    "dexId": "pumpswap",
+    "url": "https://dexscreener.com/solana/ewjia2nk268howctfitp8chqskec8z6azahcimkppxfi",
+    "pairAddress": "UsdcPairAddr1111111111111111111111111111111",
+    "baseToken": {
+      "address": "9uGqEsc5Sh9GBjvLr7jUf7PyY9tDZhiV7kCdyM7Wpump",
+      "name": "gently used joystick",
+      "symbol": "N64"
+    },
+    "quoteToken": {
+      "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "name": "USD Coin",
+      "symbol": "USDC"
+    },
+    "priceNative": "0.0000008659",
+    "priceUsd": "0.00008809",
+    "txns": {
+      "m5": {
+        "buys": 11,
+        "sells": 8
+      },
+      "h1": {
+        "buys": 182,
+        "sells": 140
+      },
+      "h6": {
+        "buys": 3692,
+        "sells": 660
+      },
+      "h24": {
+        "buys": 10386,
+        "sells": 2875
+      }
+    },
+    "volume": {
+      "h24": 357520.61,
+      "h6": 86950.88,
+      "h1": 14113.53,
+      "m5": 647.08
+    },
+    "priceChange": {
+      "m5": 1.13,
+      "h1": 2.19,
+      "h6": -8.25,
+      "h24": -5.1
+    },
+    "liquidity": {
+      "usd": 24772.34,
+      "base": 150275998,
+      "quote": 113.361
+    },
+    "fdv": 85411,
+    "marketCap": 85411,
+    "pairCreatedAt": 1793056090000
+  }
+]

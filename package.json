@@ -1,0 +1,46 @@
+{
+  "name": "solana-paper-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PAPER-TRADING-ONLY Solana / pump.fun simulation bot with a Fastify API and Next.js dashboard. No real transactions are ever executed.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20.19.0 <25"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c cyan,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev -w @spb/api",
+    "dev:web": "npm run dev -w @spb/web",
+    "build": "npm run build -w @spb/api && npm run build -w @spb/web",
+    "start": "concurrently -k -n api,web -c cyan,magenta \"npm:start:api\" \"npm:start:web\"",
+    "start:api": "npm run start -w @spb/api",
+    "start:web": "npm run start -w @spb/web",
+    "test": "npm run test -w @spb/shared && npm run test -w @spb/api",
+    "test:pg": "npm run test:pg -w @spb/api",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "backtest": "npm run backtest -w @spb/api --",
+    "record": "npm run record -w @spb/api --",
+    "record:report": "npm run record:report -w @spb/api --",
+    "onchain": "npm run onchain -w @spb/api --",
+    "onchain:report": "npm run onchain:report -w @spb/api --",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "docker:db": "docker compose up -d postgres",
+    "docker:up": "docker compose --profile app up -d --build",
+    "docker:down": "docker compose --profile app down",
+    "verify:no-real-trading": "node scripts/verify-no-real-trading.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.4.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.0"
+  }
+}
